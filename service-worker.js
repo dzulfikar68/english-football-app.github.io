@@ -1,4 +1,4 @@
-importScripts('/js/workbox-sw.js');
+importScripts('/fb-app/js/workbox-sw.js');
 
 if (workbox) {
     console.log(`WORKBOX yes`);
@@ -8,25 +8,25 @@ if (workbox) {
 }
 
 workbox.precaching.precacheAndRoute([
-    { url: '/', revision: '1' },
-    { url: '/index.html', revision: '1'},
-    { url: '/team.html', revision: '1'},
-    { url: '/favorites.html', revision: '1'},
-    { url: '/css/app.css', revision: '1'},
-    { url: '/css/icon.css', revision: '1'},
-    { url: '/css/font-awesome.min.css', revision: '1'},
-    { url: '/css/materialize.min.css', revision: '1'},
-    { url: '/js/materialize.min.js', revision: '1'},
-    { url: '/js/snarkdown.umd.js', revision: '1'},
-    { url: '/workbox-sw.js', revision: '1'},
-    { url: '/js/idb.js', revision: '1'},
-    { url: '/js/trx.js', revision: '1'},
-    { url: '/js/uix.js', revision: '1'},
-    { url: '/js/api.js', revision: '1'},
+    { url: '/fb-app/', revision: '1' },
+    { url: '/fb-app/index.html', revision: '1'},
+    { url: '/fb-app/team.html', revision: '1'},
+    { url: '/fb-app/favorites.html', revision: '1'},
+    { url: '/fb-app/css/app.css', revision: '1'},
+    { url: '/fb-app/css/icon.css', revision: '1'},
+    { url: '/fb-app/css/font-awesome.min.css', revision: '1'},
+    { url: '/fb-app/css/materialize.min.css', revision: '1'},
+    { url: '/fb-app/js/materialize.min.js', revision: '1'},
+    { url: '/fb-app/js/snarkdown.umd.js', revision: '1'},
+    { url: '/fb-app/workbox-sw.js', revision: '1'},
+    { url: '/fb-app/js/idb.js', revision: '1'},
+    { url: '/fb-app/js/trx.js', revision: '1'},
+    { url: '/fb-app/js/uix.js', revision: '1'},
+    { url: '/fb-app/js/api.js', revision: '1'},
     { url: '/js/app.js', revision: '1'},
-    { url: '/icon.png', revision: '1'},
-    { url: '/noimage.png', revision: '1'},
-    { url: '/manifest.json', revision: '1'},
+    { url: '/fb-app/icon.png', revision: '1'},
+    { url: '/fb-app/noimage.png', revision: '1'},
+    { url: '/fb-app/manifest.json', revision: '1'},
 ]);
 
 workbox.routing.registerRoute(
@@ -81,7 +81,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('/css/materialize.min.css'),
+    new RegExp('/fb-app/css/materialize.min.css'),
     workbox.strategies.cacheFirst()
 );
 
@@ -99,7 +99,7 @@ self.addEventListener('push', function (event) {
     }
     var options = {
         body: body,
-        icon: 'img/icon.png',
+        icon: '/fb-app/icon.png',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
