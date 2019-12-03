@@ -31,27 +31,29 @@ function saveFavorite(id) {
 function setListCardTeam(data) {
 	var dataHTML = "";
   	data.standings[0].table.forEach(function(team) {
-    	dataHTML += `
-    	<div class="col s6 m4 l3">
-          <div class="card">
-            <a href="./team.html?id=${team.team.id}">
-              <div class="card-image waves-effect waves-block waves-light" style="max-height: 175px;">
-                <img src="${team.team.crestUrl}" />
-              </div>
-            </a>
-            <i id="icon-heart-${team.team.id}" class="fa fa-heart icon-heart right" onClick="saveFavorite(${team.team.id})"></i>
-            <div class="card-content">
-              <span class="card-title truncate">${team.team.name}</span>
-              <li>played games: ${team.playedGames}</li>
-              <li>won: ${team.won}</li>
-              <li>draw: ${team.draw}</li>
-              <li>lost: ${team.lost}</li>
-              <li>points: ${team.points}</li>
-              <li>position: ${team.position}</li>
-            </div>
-          </div>
-      </div>
-      `;
+		var imageOld = team.team.crestUrl;
+  		var imageNew = imageOld.replace(/^http:\/\//i, 'https://'); 
+		dataHTML += `
+		<div class="col s6 m4 l3">
+		  <div class="card">
+		    <a href="./team.html?id=${team.team.id}">
+		      <div class="card-image waves-effect waves-block waves-light" style="max-height: 175px;">
+			<img src="${imageNew}" />
+		      </div>
+		    </a>
+		    <i id="icon-heart-${team.team.id}" class="fa fa-heart icon-heart right" onClick="saveFavorite(${team.team.id})"></i>
+		    <div class="card-content">
+		      <span class="card-title truncate">${team.team.name}</span>
+		      <li>played games: ${team.playedGames}</li>
+		      <li>won: ${team.won}</li>
+		      <li>draw: ${team.draw}</li>
+		      <li>lost: ${team.lost}</li>
+		      <li>points: ${team.points}</li>
+		      <li>position: ${team.position}</li>
+		    </div>
+		  </div>
+	      </div>
+	      `;
   	});
   	document.getElementById("body-content").innerHTML = dataHTML;
 }
@@ -59,12 +61,14 @@ function setListCardTeam(data) {
 function setListCardTeamByFavorites(data) {
   var dataHTML = "";
     data.forEach(function(team) {
+	var imageOld = team.image;
+  	var imageNew = imageOld.replace(/^http:\/\//i, 'https://'); 
       dataHTML += `
       <div class="col s6 m4 l3">
           <div class="card">
             <a href="./team.html?id=${team.id}">
               <div class="card-image waves-effect waves-block waves-light" style="max-height: 175px;">
-                <img src="${team.image}" />
+                <img src="${imageNew}" />
               </div>
             </a>
             <div class="card-content">
@@ -102,12 +106,15 @@ function setItemCardTeam(data) {
   var year = date.getFullYear();
   var next = year + 1
 
+  var imageOld = data.crestUrl;
+  var imageNew = imageOld.replace(/^http:\/\//i, 'https://'); 
+  
   var dataHTML = `
   <div class="row">
     <div class="col s5 m4 l3">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img src="${data.crestUrl}" />
+          <img src="${imageNew}" />
         </div>
         <div class="card-content">
           <span class="card-title"><b>${data.shortName}</b></span>
