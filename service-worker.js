@@ -43,7 +43,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp(self.location.origin + "/"),
+    new RegExp(self.location.origin + "/fb-app/"),
     workbox.strategies.staleWhileRevalidate()
 );
 
