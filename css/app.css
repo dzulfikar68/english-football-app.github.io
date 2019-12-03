@@ -1,0 +1,11 @@
+
+.fa-heart.icon-heart {
+	margin-top:10px;
+	margin-right:10px;
+	color:lightgrey;
+	text-shadow:2px 2px 4px #CCCCCC;
+	font-size:36px;
+}
+th, td {
+	text-align: center;
+}
