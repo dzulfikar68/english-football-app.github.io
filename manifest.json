@@ -3,7 +3,7 @@
     "gcm_sender_id": "489407451958",
     "short_name": "FB App",
     "description": "Aplikasi Football PWA Schedhule",
-    "start_url": "/index.html",
+    "start_url": "/fb-app/index.html",
     "display": "standalone",
     "background_color": "#00897B",
     "theme_color": "#00897B",
