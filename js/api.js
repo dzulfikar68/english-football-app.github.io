@@ -1,7 +1,7 @@
 
 //API CALL METHODS
 
-var base_url = "https://api.football-data.org/v2/";
+var base_url = "https://api.football-data.org/v4/";
 function status(response) {
   if (response.status !== 200) {
     console.log("Error : " + response.status);
