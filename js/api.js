@@ -44,6 +44,7 @@ function getTeams() {
   .then(status)
   .then(json)
   .then(function(data) {
+    console.log(data.standings[0].table)
     setListCardTeam(data)
     checkAllFavorite(data)
     sessionStorage.setItem("listTeams", JSON.stringify(data));

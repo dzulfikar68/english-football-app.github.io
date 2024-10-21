@@ -28,32 +28,52 @@ function saveFavorite(id) {
   })
 }
 
+// [ITEM TABLE]
+// {
+//   "position": 1,
+//   "team": {
+//       "id": 64,
+//       "name": "Liverpool FC",
+//       "shortName": "Liverpool",
+//       "tla": "LIV",
+//       "crest": "https://crests.football-data.org/64.png"
+//   },
+//   "playedGames": 8,
+//   "form": null,
+//   "won": 7,
+//   "draw": 0,
+//   "lost": 1,
+//   "points": 21,
+//   "goalsFor": 15,
+//   "goalsAgainst": 3,
+//   "goalDifference": 12
+// }
 function setListCardTeam(data) {
 	var dataHTML = "";
   	data.standings[0].table.forEach(function(team) {
-		var imageOld = team.team.crestUrl;
+		  var imageOld = team.team.crest;
   		var imageNew = imageOld.replace(/^http:\/\//i, 'https://'); 
-		dataHTML += `
-		<div class="col s6 m4 l3">
-		  <div class="card">
-		    <a href="./team.html?id=${team.team.id}">
-		      <div class="card-image waves-effect waves-block waves-light" style="max-height: 175px;">
-			<img src="${imageNew}" />
-		      </div>
-		    </a>
-		    <i id="icon-heart-${team.team.id}" class="fa fa-heart icon-heart right" onClick="saveFavorite(${team.team.id})"></i>
-		    <div class="card-content">
-		      <span class="card-title truncate">${team.team.name}</span>
-		      <li>played games: ${team.playedGames}</li>
-		      <li>won: ${team.won}</li>
-		      <li>draw: ${team.draw}</li>
-		      <li>lost: ${team.lost}</li>
-		      <li>points: ${team.points}</li>
-		      <li>position: ${team.position}</li>
-		    </div>
-		  </div>
-	      </div>
-	      `;
+      dataHTML += `
+      <div class="col s6 m4 l3">
+        <div class="card">
+          <a href="./team.html?id=${team.team.id}">
+            <div class="card-image waves-effect waves-block waves-light" style="max-height: 175px;">
+        <img src="${imageNew}" />
+            </div>
+          </a>
+          <!-- <i id="icon-heart-${team.team.id}" class="fa fa-heart icon-heart right" onClick="saveFavorite(${team.team.id})"></i> -->
+          <div class="card-content">
+            <span class="card-title truncate">${team.team.name}</span>
+            <li>played games: ${team.playedGames}</li>
+            <li>won: ${team.won}</li>
+            <li>draw: ${team.draw}</li>
+            <li>lost: ${team.lost}</li>
+            <li>points: ${team.points}</li>
+            <li>position: ${team.position}</li>
+          </div>
+        </div>
+      </div>
+      `;
   	});
   	document.getElementById("body-content").innerHTML = dataHTML;
 }
