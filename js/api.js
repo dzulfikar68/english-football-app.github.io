@@ -38,6 +38,7 @@ function getTeams() {
   const myHeaders = new Headers();
   myHeaders.append('X-Auth-Token', '2917cc7afe38408a8ede7f3d25418376');
   fetch(base_url + "competitions/2021/standings", {
+    mode: 'no-cors',
     method: 'GET',
     headers: myHeaders,
   })
